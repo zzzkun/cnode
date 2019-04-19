@@ -25,7 +25,7 @@
                    params:{id:item.id}
                }">
 
-            {{item.title}}
+            <span class="topics-list">{{item.title}} </span>
                </router-link>
            </li>
        </ul>
@@ -34,14 +34,14 @@
        <p>最近参与的话题</p>
        <ul>
            <li v-for="(item, index) in userinfo.recent_replies" :key="index" class="cell">
-                <!-- <img :src="userinfo.avatar_url" alt=""> -->
+                <img :src="item.author.avatar_url" alt="">
                 <router-link :to="{
                      name: 'post-content',
                    params:{id:item.id}
                
                 }">
 
-                  {{item.title}} 
+                  <span class="topics-list">{{item.title}} </span>
                 </router-link>
            </li>
        </ul>
@@ -94,6 +94,7 @@ export default {
 }
 .userInfomation img {
   width: 30px;
+  margin-bottom: -8px;
 }
 .userInfomation li {
   list-style: none;
@@ -122,10 +123,25 @@ export default {
   color: #094e99;
   text-decoration: none;
 }
-
+ul{
+  padding: 0;
+}
 .cell{
+  
     padding-right: 10px;
     background: #fff;
     border-bottom: 1px solid #f0f0f0;
+}
+img{
+  /* padding-top: 20px; */
+}
+.topics-list{
+      margin: 6px 0 0 5px;
+      font-size: 16px;
+      color: #333;
+}
+.cell:hover{
+
+background: #f5f5f5;
 }
 </style>

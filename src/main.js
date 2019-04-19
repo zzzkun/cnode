@@ -47,9 +47,12 @@ Vue.filter('formtitle', function (item) {
     return  ' 置顶'
   }else if(item.tab=='ask'){
     return  ' 问答'
-  }else if(item.job=='share'){
+  }else if(item.tab=='share'){
     return  '分享'
-  }else {
+  }else  if(item.tab=='job'){
     return  '招聘'
+  }else  if(item.tab=='dev'){
+    return  '测试'
   }
+  
 })

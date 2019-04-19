@@ -20,19 +20,20 @@
 
       <div class="topbara">回复</div>
       <div v-for="(item, index) in item.replies" :key="index" class="a">
-        <router-link to="">
-        <img :src="item.author.avatar_url" alt="">
-        </router-link>
-
         <router-link :to="{
           name: 'user-info',
           params:{
             name:item.author.loginname
           }
         }">
-        <span>{{item.author.loginname}}</span>
+        <img :src="item.author.avatar_url" alt="">
         </router-link>
+
+        
+        <span>{{item.author.loginname}}</span>
+        
         <span>{{index+1}}楼</span>
+        <span>{{item.create_at| formatDate}}</span>
         <span v-if="item.ups.length>0" class="user_action">☝{{item.ups.length}}</span>
       
         <p v-html="item.content" class="cell"></p>
@@ -104,7 +105,7 @@ export default {
   width: 30px;
   height: 30px;
   position: relative;
-  bottom: -9px;
+  bottom: -3px;
   border-radius: 3px;
 }
 #reply a,

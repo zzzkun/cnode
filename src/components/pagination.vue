@@ -12,7 +12,13 @@
 import $ from 'jquery'
 export default {
   components:{},
-  props:{},
+  props:{
+    isRest:{
+      type:Boolean,
+      // default:false
+    
+    }
+  },
   data(){
     return {
         items:[1,2,3,4,5,'.....'],
@@ -20,7 +26,13 @@ export default {
         jduge:false
     }
   },
-  watch:{},
+  watch:{
+    isRest(){ // isRest改变触发,重置该组件的样式
+    console.log(111)
+      this.items = [1,2,3,4,5,'.....'];
+      this.current = 1
+    }
+  },
   computed:{},
   methods:{
     change(value){
@@ -39,6 +51,7 @@ export default {
             
             this.items = [1,2,3,4,5,'.....'];
             this.change(1);
+            
           default:
 
             break;
